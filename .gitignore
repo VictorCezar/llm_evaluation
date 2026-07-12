@@ -77,3 +77,4 @@ Desktop.ini
 # Avoid ignoring docker-compose.yml or Dockerfile since they are project configurations
 # But ignore local compose override files if they contain local configurations
 docker-compose.override.yml
++A Educação - Teste Engenheiro de IA .pdf
