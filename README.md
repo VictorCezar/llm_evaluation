@@ -21,27 +21,50 @@ As principais tecnologias e dependências utilizadas são:
 
 ## ⚙️ Configuração do Ambiente
 
-1. Clone ou acesse o repositório do projeto.
-2. Copie o arquivo de exemplo de ambiente `.env.example` para `.env`:
+### 🔑 Configurando a API Key do Groq (`.env`)
+Antes de rodar o projeto localmente, é necessário obter as credenciais da API do Groq.
+
+**Criar a Groq API Key:**
+1. Acesse o console oficial do Groq: https://console.groq.com/.
+2. Faça login ou crie uma conta gratuita.
+3. Vá para a seção **API Keys** no painel lateral.
+4. Clique em **Create API Key**, atribua um nome a ela e copie a chave gerada (com formato `gsk_...`).
+
+**Configurar o Arquivo `.env`:**
+1. Duplique o arquivo `.env.example` presente na raiz do projeto e renomeie a cópia para `.env`.
    ```bash
    cp .env.example .env
    ```
-3. Abra o arquivo `.env` e configure as seguintes variáveis:
+2. Adicione a chave gerada à variável `GROQ_API_KEY` e configure as demais variáveis básicas:
    ```env
-   # Configurações do Servidor
    ENVIRONMENT=development
    PORT=8000
    HOST=0.0.0.0
 
-   # API do Groq
-   GROQ_API_KEY=sua_chave_da_groq_aqui
-   GROQ_MODEL=llama3-70b-8192
-
-   # Observabilidade LangSmith (Opcional, mas recomendado)
-   LANGCHAIN_TRACING_V2=true
-   LANGCHAIN_API_KEY=sua_chave_do_langsmith_aqui
-   LANGCHAIN_PROJECT=llm-as-a-judge
+   GROQ_API_KEY=gsk_suachaveaqui...
+   GROQ_MODEL=openai/gpt-oss-120b
    ```
+
+### 📊 Observabilidade com LangSmith (Opcional)
+O projeto possui suporte integrado à telemetria e rastreamento das execuções do LLM através do **LangSmith**. No entanto, **o uso do LangSmith é totalmente opcional** e o projeto funciona perfeitamente sem ele.
+
+* **Se você NÃO deseja usar a telemetria:**
+  Basta definir `LANGCHAIN_TRACING_V2=false` no seu arquivo `.env`. Com isso, a aplicação funcionará normalmente sem tentar enviar logs ou se conectar aos servidores do LangSmith.
+  ```env
+  LANGCHAIN_TRACING_V2=false
+  LANGCHAIN_API_KEY=
+  LANGCHAIN_PROJECT=llm-as-a-judge
+  ```
+
+* **Se você deseja ativar a telemetria:**
+  1. Crie uma conta no site oficial do [LangSmith](https://smith.langchain.com/).
+  2. Vá nas configurações de sua conta, crie uma **API Key** e adicione as variáveis no seu `.env`:
+     ```env
+     LANGCHAIN_TRACING_V2=true
+     LANGCHAIN_API_KEY=sua_chave_do_langsmith_aqui
+     LANGCHAIN_PROJECT=llm-as-a-judge
+     ```
+  3. Ao rodar o projeto, todos os logs e fluxos da função avaliadora serão enviados para a sua conta e poderão ser inspecionados graficamente no painel do LangSmith.
 
 ---
 
@@ -53,9 +76,10 @@ O projeto é autossuficiente para deploy e pode ser executado facilmente com Doc
    ```bash
    docker compose up --build
    ```
-2. A API estará disponível em:
-   * **Endpoint de Avaliação:** `POST http://localhost:8000/evaluate`
-   * **Documentação interativa (Swagger UI):** `http://localhost:8000/docs`
+2. A aplicação e seus endpoints estarão disponíveis em:
+   * **Painel do Frontend (Dashboard):** `http://localhost:8000/` (Interface gráfica para envio e visualização das análises de conversas em tempo real)
+   * **Endpoint de Avaliação da API:** `POST http://localhost:8000/evaluate`
+   * **Documentação interativa da API (Swagger UI):** `http://localhost:8000/docs`
 
 ---
 
