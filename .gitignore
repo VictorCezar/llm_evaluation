@@ -1,0 +1,79 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.pytest_cache/
+.pytest/
+.cache/
+.hypothesis/
+.nox/
+.tox/
+.coverage
+.coverage.*
+.coveragerc
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.xml
+.html
+.junit.xml
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Virtualenv and environments
+*.env
+
+# IDE / Editor configuration
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Docker
+.docker/
+# Avoid ignoring docker-compose.yml or Dockerfile since they are project configurations
+# But ignore local compose override files if they contain local configurations
+docker-compose.override.yml
