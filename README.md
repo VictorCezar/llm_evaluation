@@ -4,6 +4,14 @@ Este projeto implementa um sistema de "LLM-as-a-Judge" robusto e assíncrono par
 
 ---
 
+## 📐 Arquitetura e System Design
+
+O diagrama a seguir ilustra o funcionamento e a arquitetura do design system integrado na aplicação:
+
+![System Design da Aplicação](app_diagram.png)
+
+---
+
 ## 🚀 Requisitos e Dependências
 
 As principais tecnologias e dependências utilizadas são:
