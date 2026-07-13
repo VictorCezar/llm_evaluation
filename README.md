@@ -47,11 +47,6 @@ sequenceDiagram
     APP-->>Cliente: Retorna JSON estruturado (HTTP 200)
     deactivate APP
 ```
-
-*(Adicionalmente, a arquitetura geral do design integrado está representada abaixo:)*
-
-![System Design da Aplicação](app_diagram.png)
-
 ---
 
 ### 3. Decisões Técnicas & Justificativas
